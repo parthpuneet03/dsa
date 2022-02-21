@@ -106,19 +106,18 @@ void DelLast(struct node* head){
     free(ptr);
     ptr=NULL;
 };
-/*position 1 portion of this function doesn't work*/
 struct node* DelPos(struct node* head){
     struct node* ptr=head;
     int pos;
     printf("\nEnter position of node to be deleted");
-    printf("%d",head->data);
     scanf("%d",&pos);
     if(pos==1){
+        struct node*ptr=head;
         head=head->next;
-        free(head->prev);
-        head->prev=NULL;
+        free(ptr);
+        head->prev=NULL;    
         return head;
-}
+    }
     while(pos>1){
         ptr=ptr->next;
         pos--;
@@ -157,17 +156,17 @@ int main(){
     struct node* head=NULL;
     head=createlist(head);
     printf("before del:");
-    printf(" *%d* ",head->data);
     printNodes(head);
+    
     head=DelFirst(head);
     printf("\nafter del 1:");
-    printf(" *%d* ",head->data);
     printNodes(head);
+    
     DelLast(head);
     printf("\nafter del 2:");
-    printf(" *%d* ",head->data);
     printNodes(head);
-    DelPos(head);
+    
+    head=DelPos(head);
     printf("\nafter del 3:");
     printNodes(head);
 return 0;
