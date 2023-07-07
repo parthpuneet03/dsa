@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//deletion is dpne from front end
+//deletion is done from front end
 //insertion is done from the rear end
 
 struct Cqueue{
